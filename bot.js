@@ -149,6 +149,16 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**__Ù
 });
 
 
+client.on('message' , message => {
+  if(message.author.bot) return;
+  if(message.content.startsWith(prefix + "ping")) {
+ message.channel.send('pong').then((msg) => {
+var PinG = `${Date.now() - msg.createdTimestamp}`
+var ApL = `${Math.round(client.ping)}`
+      msg.edit(`\`\`\`javascript\nTime taken: ${PinG} ms.\nDiscord API: ${ApL} ms.\`\`\``);
+ })
+  }  
+ });
 
 
 
