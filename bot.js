@@ -73,6 +73,15 @@ msg.delete();
 });
 
 
+client.on('message', message => {
+     if (message.content === "^help") {
+     let embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.addField('     **^bc** ' ,' **لعمل برودكاست** ')
+.setColor('RANDOM')
+  message.channel.sendEmbed(embed);
+    }
+});
 
 
 
