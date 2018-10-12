@@ -74,10 +74,10 @@ msg.delete();
 
 
 client.on('message', message => {
-     if (message.content === "T~help") {
+     if (message.content === "^help") {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
-.addField('     **T~ping** ' ,' **سرعة إتصال البوت** ')
+.addField('     **^ping** ' ,' **سرعة إتصال البوت** ')
 .addField('     **T~id**  ' ,' **معلومــات عــن حســابــك** ')
 .addField('     **T~say** ' , '**يكرر الكلام الذي تقولة**')
 .addField('     **T~info** ' ,' ** معلومات عن السيرفر**')
@@ -86,12 +86,8 @@ client.on('message', message => {
 .addField('     **لإظهار بعض صور الحيوانات** ' ,' **حيوانات ** ')
 .addField('     ** ** ' ,' ** ** ')
 .addField('     ** ** ' ,' ** أوآمر الإدآرة ** ')
-.addField('     **T~kick ** ' ,' ** للطرد  ** ')
-.addField('     **T~bc ** ' ,' ** للبرودكاست ** ')
-.addField('     **T~clear** ' , '**لـ مسح الشات** ')
-.addField('     **T~roles** ' , '**لـ اظهار الرتب الخاصة في السيرفر** ')
-.addField('للأستفسار أو الرد على أسئلتكم وأفكـــاركم كلمني على الديسكورد ' , '**! ҜṦẰ - KBOOSH - كبوش—Ƴ丅 0.3K#3128**')
-.addField('**لدعوة البوت للسيرفر ..**' , '**https://discordapp.com/oauth2/authorize?client_id=345157648531849216&scope=bot&permissions=0**')
+.addField('     **^mute ** ' ,' ** لعمل ميوت للعضو  ** ')
+.addField('     **^bc ** ' ,' ** للبرودكاست ** ')
 .setColor('RANDOM')
   message.channel.sendEmbed(embed);
     }
