@@ -111,7 +111,7 @@ client.on("message", message => {
     if (message.author.bot) return;
    
     let command = message.content.split(" ")[0];
-   //unmute
+  
     if (command === prefix + "unmute") {
           if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply("**⚠ | `[MANAGE_ROLES]`لا يوجد لديك صلاحية**").catch(console.error);
     let user = message.mentions.users.first();
