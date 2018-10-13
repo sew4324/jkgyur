@@ -76,6 +76,15 @@ msg.delete();
 
 
 
+client.on('message', message => {
+    if(message.content == '^bans'){
+        message.guild.fetchBans().then(bans => {
+            bans.forEach(user => {
+               message.channel.send('\`#\` <@'+ user.id + '>');
+            });
+        });
+    }
+});
 
 
 
