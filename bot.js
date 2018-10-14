@@ -98,7 +98,7 @@ client.on("message", function(message) {
        .addField("**# - السبب:**",toReason,true)
        .addField("**# - من قبل:**",message.author,true)
        if(message.member.hasPermission("BAN_MEMBERS")) return (
-           toBan.sendMessage({embed: toEmbed}).then(() => message.guild.member(toBan).ban({reason: toReason})).then(() => message.channel.send(`**# Done! I banned: ${toBan}**`))
+           toBan.sendMessage({embed: toEmbed}).then(() => message.guild.member(toBan).ban({reason: toReason})).then(() => message.channel.send(`** تم تبنيده :white_check_mark: ${toBan}**`))
        );
 
    }
@@ -112,11 +112,11 @@ client.on('message',function(message) {
     let toReason = message.content.split(" ").slice(2).join(" ");
     let toEmbed = new Discord.RichEmbed()
    if(message.content.startsWith(prefix + 'kick')) {
-       if(!message.member.hasPermission("KICK_MEMBERS")) return message.reply('**ليست لديك صلاحية**');
-       if(toKick.kickable) return message.reply("**لايمكن طرد احد اعضاء الادارة**");
-       if(!toReason) return message.reply("**اكتب سبب**")
-       if(toKick.id === message.author.id) return message.reply("**لا استطيع طردك**")
-       if(!message.guild.member(toKick).kickable) return message.reply("**لا استعطيع طرد هذا الشخص!**")
+       if(!message.member.hasPermission("KICK_MEMBERS")) return message.reply('**# - ليس لديك البرمشنات المطلوبة!**');
+       if(toKick.kickable) return message.reply("**# - لا استطيع طرد شخص اعلى مني**");
+       if(!toReason) return message.reply("**# - اكتب سبب**")
+       if(toKick.id === message.author.id) return message.reply("**# لا استطيع طردك**")
+       if(!message.guild.member(toKick).kickable) return message.reply("**# - لا استعطيع طرد هذا الشخص!**")
        let toEmbed;
        toEmbed = new Discord.RichEmbed()
        .setTitle("تم طردك من السيرفر!")
@@ -125,7 +125,7 @@ client.on('message',function(message) {
        .addField("**# - السبب:**",toReason,true)
        .addField("**# - من قبل:**",message.author,true)
        if(message.member.hasPermission("KICK_MEMBERS")) return (
-           toKick.sendMessage({embed: toEmbed}).then(() => message.guild.member(toKick).kick()).then(() => message.channel.send(`**تعرص للطرد :white_check_mark: ${toKick}**`))
+           toKick.sendMessage({embed: toEmbed}).then(() => message.guild.member(toKick).kick()).then(() => message.channel.send(`**# Done! I kicked: ${toKick}**`))
        )
        }
 });
