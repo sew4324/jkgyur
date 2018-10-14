@@ -81,12 +81,15 @@ client.on("message", function(message) {
     let toBan = message.mentions.users.first();
     let toReason = message.content.split(" ").slice(2).join(" ");
     let toEmbed = new Discord.RichEmbed()
-   if(message.content.startsWith(prefix + 'ban')) {
+   if(message.content.startsWith(prefix + "ban")) {
        if(!message.member.hasPermission("BAN_MEMBERS")) return message.reply("**ليست لديك صلاحية**");
-       if(!toBan) return message.reply("**منشن شخص**");
-       if(toBan.bannable) return message.reply("**لايمكن تبنيد احد ادارة السيرفر**");
-       if(!toReason) return message.reply("**اكتب سبب**")
-       if(!message.guild.member(toBan).bannable) return message.reply("**لايمكن تبند هذا الشخص**")
+       if(!toBan) return message.reply("**منشن عضو**");
+       if(toBan.id === ("344127240935571457")) return message.reply("**كيف اطرد نفسي خبل انتا ؟**");
+       if(toBan === message.member.guild.owner) return message.reply("**تبي تطرد اونر السيرفر ؟ ماتحس انك زودتها !*");
+       if(toBan.bannable) return message.reply("**لايمكن طرد احد ادارة السيرفر**");
+       if(!toReason) return message.reply("**اكتب سببآ**")
+       if(toBan.id === message.author.id) return message.reply("**لا استطيع طردك**")
+       if(!message.guild.member(toBan).bannable) return message.reply("**لا استطيع طرد هذا الشخص**")
        let toEmbed;
        toEmbed = new Discord.RichEmbed()
        .setTitle("تم تبنيدك من السيرفر")
@@ -95,12 +98,11 @@ client.on("message", function(message) {
        .addField("**# - السبب:**",toReason,true)
        .addField("**# - من قبل:**",message.author,true)
        if(message.member.hasPermission("BAN_MEMBERS")) return (
-           toBan.sendMessage({embed: toEmbed}).then(() => message.guild.member(toBan).ban({reason: toReason})).then(() => message.channel.send(`**تم تبنيده :white_check_mark: **`))
+           toBan.sendMessage({embed: toEmbed}).then(() => message.guild.member(toBan).ban({reason: toReason})).then(() => message.channel.send(`**# Done! I banned: ${toBan}**`))
        );
 
    }
 });
-
 
 
 
