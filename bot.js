@@ -82,6 +82,47 @@ msg.delete();
 
 
 
+
+client.on('message',function(message) {
+    let toKick = message.mentions.users.first();
+    let toReason = message.content.split(" ").slice(2).join(" ");
+    let toEmbed = new Discord.RichEmbed()
+   if(message.content.startsWith(prefix + 'kick')) {
+       if(!message.member.hasPermission("KICK_MEMBERS")) return message.reply('**# - ليس لديك البرمشنات المطلوبة!**');
+       if(toKick.kickable) return message.reply("**# - لا يمكنك طرد احد أدارة السيرفر :heavy_multiplication_x: **");
+       if(!toReason) return message.reply("**# - اكتب سبب**")
+       if(toKick.id === message.author.id) return message.reply("**# لا استطيع طردك**")
+       if(!message.guild.member(toKick).kickable) return message.reply("**# - لا استعطيع طرد هذا الشخص!**")
+       let toEmbed;
+       toEmbed = new Discord.RichEmbed()
+       .setTitle("تم طردك من السيرفر!")
+       .setThumbnail(toKick.avatarURL)
+       .addField("**# - السيرفر:**",message.guild.name,true)
+       .addField("**# - السبب:**",toReason,true)
+       .addField("**# - من قبل:**",message.author,true)
+       if(message.member.hasPermission("KICK_MEMBERS")) return (
+           toKick.sendMessage({embed: toEmbed}).then(() => message.guild.member(toKick).kick()).then(() => message.channel.send(`**# Done! I kicked: ${toKick}**`))
+       )
+       }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 client.on("message", async message => {
         if(!message.channel.guild) return;
         if(message.content.startsWith(prefix + 'server')) {
