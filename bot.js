@@ -135,37 +135,6 @@ client.on('message',function(message) {
 
 
 
-client.on('message', message => {//mute
-    if (message.content.startsWith('^mute')) {
-  if (!message.member.hasPermission("MOVE_MEMBERS")) return message.channel.send("**ليست لديك صلاحية ");
-  let men = message.mentions.users.first()
-  let mas = message.author
-  if(!men) return message.channel.send('`منشن لشخص` ');
-  message.guild.channels.forEach(c => {
-  c.overwritePermissions(men.id, {
-            SEND_MESSAGES: false
-  })
-      })
-  const embed = new Discord.RichEmbed()
-  .setColor("RANDOM")
-  .setDescription(`**
-   <@${men.id}>
-  لقد تم اعطائك ميوت كتابي
-  بواسطة : <@${message.author.id}> **`)
-  .setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452090205793681419/fd684707fc14f41663f15ecebf089f06.png")
-
-  Rocket.users.get(men.id).sendEmbed(embed)
-  .setAuthor(message.guild.name, message.guild.iconURL)
-  .setDescription(`          <@${men.id}>
-  Muted :white_check_mark:
-  بواسطة : <@${message.author.id}> `)
-  message.channel.sendEmbed(Embed11).then(message => {message.delete(20000)})
-      }
-
-
-});
-
-
 
 
 
