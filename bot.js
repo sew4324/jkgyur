@@ -77,7 +77,29 @@ msg.delete();
 
 
 
+client.on("message", function(message) {
+    let toBan = message.mentions.users.first();
+    let toReason = message.content.split(" ").slice(2).join(" ");
+    let toEmbed = new Discord.RichEmbed()
+   if(message.content.startsWith(prefix + "ban")) {
+       if(!message.member.hasPermission("BAN_MEMBERS")) return message.reply("**ليست لديك صلاحية**");
+       if(!toBan) return message.reply("**منشن شخص**");
+       if(toBan.bannable) return message.reply("**لايمكن تبنيد احد ادارة السيرفر**");
+       if(!toReason) return message.reply("**اكتب سبب**")
+       if(!message.guild.member(toBan).bannable) return message.reply("**لايمكن تبند هذا الشخص**")
+       let toEmbed;
+       toEmbed = new Discord.RichEmbed()
+       .setTitle("تم تبنيدك من السيرفر")
+       .setThumbnail(toBan.avatarURL)
+       .addField("**# - السيرفر:**",message.guild.name,true)
+       .addField("**# - السبب:**",toReason,true)
+       .addField("**# - من قبل:**",message.author,true)
+       if(message.member.hasPermission("BAN_MEMBERS")) return (
+           toBan.sendMessage({embed: toEmbed}).then(() => message.guild.member(toBan).ban({reason: toReason})).then(() => message.channel.send(**تم تبنيده :white_check_mark**`))
+       );
 
+   }
+});
 
 
 
