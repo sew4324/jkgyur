@@ -81,7 +81,7 @@ client.on("message", function(message) {
     let toBan = message.mentions.users.first();
     let toReason = message.content.split(" ").slice(2).join(" ");
     let toEmbed = new Discord.RichEmbed()
-   if(message.content.startsWith(prefix + "ban")) {
+   if(message.content.startsWith(prefix + 'ban')) {
        if(!message.member.hasPermission("BAN_MEMBERS")) return message.reply("**ليست لديك صلاحية**");
        if(!toBan) return message.reply("**منشن شخص**");
        if(toBan.bannable) return message.reply("**لايمكن تبنيد احد ادارة السيرفر**");
