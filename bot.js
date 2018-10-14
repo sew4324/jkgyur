@@ -90,7 +90,6 @@ client.on('message',function(message) {
    if(message.content.startsWith(prefix + 'kick')) {
        if(!message.member.hasPermission("KICK_MEMBERS")) return message.reply('**# - ليس لديك البرمشنات المطلوبة!**');
        if(toKick.kickable) return message.reply("**# - لا يمكنك طرد احد أدارة السيرفر :heavy_multiplication_x: **");
-       if(!toReason) return message.reply("**# - اكتب سبب**")
        if(toKick.id === message.author.id) return message.reply("**# لا استطيع طردك**")
        if(!message.guild.member(toKick).kickable) return message.reply("**# - لا استعطيع طرد هذا الشخص!**")
        let toEmbed;
