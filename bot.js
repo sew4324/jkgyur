@@ -95,7 +95,7 @@ client.on("message", function(message) {
        .addField("**# - السبب:**",toReason,true)
        .addField("**# - من قبل:**",message.author,true)
        if(message.member.hasPermission("BAN_MEMBERS")) return (
-           toBan.sendMessage({embed: toEmbed}).then(() => message.guild.member(toBan).ban({reason: toReason})).then(() => message.channel.send(**تم تبنيده :white_check_mark**`))
+           toBan.sendMessage({embed: toEmbed}).then(() => message.guild.member(toBan).ban({reason: toReason})).then(() => message.channel.send(`**تم تبنيده:white_check_mark **`))
        );
 
    }
