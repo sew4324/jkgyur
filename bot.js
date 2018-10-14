@@ -101,7 +101,7 @@ client.on('message',function(message) {
        .addField("**# - السبب:**",toReason,true)
        .addField("**# - من قبل:**",message.author,true)
        if(message.member.hasPermission("KICK_MEMBERS")) return (
-           toKick.sendMessage({embed: toEmbed}).then(() => message.guild.member(toKick).kick()).then(() => message.channel.send(`**# Done! I kicked: ${toKick}**`))
+           toKick.sendMessage({embed: toEmbed}).then(() => message.guild.member(toKick).kick()).then(() => message.channel.send(`**# تعرض للطرد :white_check_mark: ${toKick}**`))
        )
        }
 });
