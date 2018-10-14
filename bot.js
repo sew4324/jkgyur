@@ -85,7 +85,6 @@ msg.delete();
 
 client.on('message',function(message) {
     let toKick = message.mentions.users.first();
-    let toReason = message.content.split(" ").slice(2).join(" ");
     let toEmbed = new Discord.RichEmbed()
    if(message.content.startsWith(prefix + 'kick')) {
        if(!message.member.hasPermission("KICK_MEMBERS")) return message.reply('**# - ليس لديك البرمشنات المطلوبة!**');
