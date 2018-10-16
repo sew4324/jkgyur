@@ -123,11 +123,11 @@ client.on('message', message => {
       .setFooter(message.author.username, message.author.avatarURL) 
       .setTitle(':tulip:| Members info')
       .addBlankField(true)
-      .addField(':green_book:| الاونلاين ',
+      .addField(':green_apple: | الاونلاين ',
       `${message.guild.members.filter(m=>m.presence.status == 'online').size}`)
-      .addField(':closed_book:| دي ان دي',`${message.guild.members.filter(m=>m.presence.status == 'dnd').size}`)
-      .addField(':orange_book:| خامل',`${message.guild.members.filter(m=>m.presence.status == 'idle').size}`)
-      .addField(':notebook:| الاوف لاين ',`${message.guild.members.filter(m=>m.presence.status == 'offline').size}`)
+      .addField(':red_circle: | عدم الازعاج',`${message.guild.members.filter(m=>m.presence.status == 'dnd').size}`)
+      .addField(':large_orange_diamond: | خامل',`${message.guild.members.filter(m=>m.presence.status == 'idle').size}`)
+      .addField(':white_circle: | الاوف لاين ',`${message.guild.members.filter(m=>m.presence.status == 'offline').size}`)
       .addField('عدد اعضاء السيرفر',`${message.guild.memberCount}`)
       message.channel.send(IzRo);
     });
