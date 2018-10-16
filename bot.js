@@ -115,25 +115,6 @@ client.on("message", function(message) {
 
 
 
-client.on('message', message => {
-              if (!message.channel.guild) return;
-      if(message.content =='^members')
-      var IzRo = new Discord.RichEmbed()
-      .setThumbnail(message.author.avatarURL)
-      .setFooter(message.author.username, message.author.avatarURL) 
-      .setTitle(':tulip:| Members info')
-      .addBlankField(true)
-      .addField(':green_apple: | الاونلاين ',
-      `${message.guild.members.filter(m=>m.presence.status == 'online').size}`)
-      .addField(':red_circle: | عدم الازعاج',`${message.guild.members.filter(m=>m.presence.status == 'dnd').size}`)
-      .addField(':large_orange_diamond: | خامل',`${message.guild.members.filter(m=>m.presence.status == 'idle').size}`)
-      .addField(':white_circle: | الاوف لاين ',`${message.guild.members.filter(m=>m.presence.status == 'offline').size}`)
-      .addField('عدد اعضاء السيرفر',`${message.guild.memberCount}`)
-      message.channel.send(IzRo);
-    });
-
-
-
 
 
 
